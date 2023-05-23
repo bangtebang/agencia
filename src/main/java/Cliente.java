@@ -1,3 +1,4 @@
+
 public class Cliente {
 	private String nombre;
 	private int edad;
@@ -28,6 +29,8 @@ public class Cliente {
 	}
 
 	public Cliente(String nombre, int edad, String run) {
-		throw new UnsupportedOperationException();
+		this.nombre= nombre;
+		this.edad= edad;
+		this.run=run;
 	}
 }
