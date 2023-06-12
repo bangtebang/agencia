@@ -1,8 +1,13 @@
+package AgenciaDeViaje;
+
+import java.util.ArrayList;
+import AgenciaDeViaje.Venta;
 
 public class Cliente {
 	private String nombre;
 	private int edad;
 	private String run;
+	private ArrayList<Venta> ventas = new ArrayList<Venta>();
 
 	public String getNombre() {
 		return this.nombre;
@@ -29,8 +34,8 @@ public class Cliente {
 	}
 
 	public Cliente(String nombre, int edad, String run) {
-		this.nombre= nombre;
-		this.edad= edad;
+		this.edad=edad;
 		this.run=run;
+		this.nombre=nombre;
 	}
 }

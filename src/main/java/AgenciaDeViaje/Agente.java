@@ -1,13 +1,14 @@
+package AgenciaDeViaje;
+
 import java.util.ArrayList;
-import java.util.List;
-public class AgenteDeViaje {
+import AgenciaDeViaje.Venta;
+
+public class Agente {
 	private String nombre;
 	private int edad;
 	private String run;
-	private ArrayList<Cliente> clientes;
-	public List<Cliente> getClientes() {
-		return this.clientes;
-	}
+	private AgenciaDeViaje agenciaDeViaje;
+	private ArrayList<Venta> ventas = new ArrayList<Venta>();
 
 	public String getNombre() {
 		return this.nombre;
@@ -33,10 +34,9 @@ public class AgenteDeViaje {
 		this.edad = edad;
 	}
 
-	public AgenteDeViaje(String nombre, int edad, String run) {
-		this.nombre= nombre;
-		this.edad= edad;
+	public Agente(String nombre, int edad, String run) {
+		this.edad=edad;
 		this.run=run;
-		this.clientes= new ArrayList<Cliente>();
+		this.nombre=nombre;
 	}
 }
