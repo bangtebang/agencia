@@ -7,8 +7,8 @@ import java.util.List;
 
 public class AgenciaDeViaje {
 
-	private List<Cliente> clientes;
-	private List<Agente> agentes;
+	private ArrayList<Cliente> clientes;
+	private ArrayList<Agente> agentes;
 
 	public AgenciaDeViaje() {
 		this.clientes = new ArrayList<>();
