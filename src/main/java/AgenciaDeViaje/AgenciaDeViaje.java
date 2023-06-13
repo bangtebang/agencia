@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import AgenciaDeViaje.Agente;
 
 public class AgenciaDeViaje {
-
-	private ArrayList<Cliente> clientes;
 	private ArrayList<Agente> agentes;
+	private ArrayList<Cliente> clientes;
 
-	public AgenciaDeViaje() {
-		this.clientes = new ArrayList<>();
-		this.agentes = new ArrayList<>();
+	public void anadirAgente(Agente agente) {
+		if (!agenteExiste(agente)) {
+			this.agentes.add(agente);
+		}
 	}
 
 	public Cliente buscarCliente(String nombre, int edad, String run) {
@@ -28,7 +29,29 @@ public class AgenciaDeViaje {
 		if (!clienteExiste(cliente)) {
 			this.clientes.add(cliente);
 		}
+	}
 
+	public Agente buscarAgente(String nombre, int edad, String run) {
+		for (Agente agente : agentes) {
+			if (agente.getNombre().equals(nombre) && agente.getRun().equals(run) && agente.getEdad() == (edad)) {
+				return agente;
+			}
+		}
+		return null;
+	}
+
+	public void eliminarAgente(Agente agente) {
+		agentes.remove(agente);
+	}
+
+	public Venta generarVenta(Cliente cliente, Agente agente, int precioVenta, String fechaVenta, int idVenta) {
+		Venta venta = new Venta(cliente, agente, precioVenta,fechaVenta,idVenta);
+		return venta;
+	}
+
+	public AgenciaDeViaje() {
+		this.clientes = new ArrayList<>();
+		this.agentes = new ArrayList<>();
 	}
 
 	public boolean clienteExiste(Cliente cliente) {
@@ -43,13 +66,6 @@ public class AgenciaDeViaje {
 		return false;
 	}
 
-	public void anadirAgente(Agente agente) {
-		if (!agenteExiste(agente)) {
-			this.agentes.add(agente);
-		}
-
-	}
-
 	public boolean agenteExiste(Agente agente) {
 		for (Agente a : agentes) {
 			if (a.getNombre().equals(agente.getNombre()) &&
@@ -61,53 +77,4 @@ public class AgenciaDeViaje {
 
 		return false;
 	}
-
-	public Agente buscarAgente(String nombre, int edad, String run) {
-		for (Agente agente : agentes) {
-			if (agente.getNombre().equals(nombre) && agente.getRun().equals(run) && agente.getEdad() == (edad)) {
-				return agente;
-			}
-		}
-		return null;
-	}
-
-
-	public void eliminarAgente(Agente agente) {
-		agentes.remove(agente);
-	}
-
-	public Venta generarVenta(Cliente cliente, Agente agente, int precioVenta, int idVenta, int fechaVenta) {
-		Venta venta = new Venta(cliente, agente, precioVenta, idVenta, fechaVenta);
-		return venta;
-	}
-
-
-
-		public static void main(String[] args) {
-			// Ejemplo de uso
-			AgenciaDeViaje agencia = new AgenciaDeViaje();
-
-			// Añadir un cliente
-			Cliente cliente1 = new Cliente("Juan",19,"1548516-a");
-			agencia.anadirCliente(cliente1);
-
-			// Añadir un vendedor
-			Agente vendedor1 = new Agente("Pedro",18,"202848-5");
-			agencia.anadirAgente(vendedor1);
-
-			// Buscar cliente
-			Cliente clienteEncontrado = agencia.buscarCliente("Juan",19,"1548516-a");
-			System.out.println("Cliente encontrado: " + clienteEncontrado.getNombre());
-
-			// Buscar vendedor
-			Agente vendedorEncontrado = agencia.buscarAgente("Pedro",18,"202848-5");
-			System.out.println("Vendedor encontrado: " + vendedorEncontrado.getNombre());
-
-			// Eliminar vendedor
-			agencia.eliminarAgente(vendedor1);
-
-			// Generar venta
-			Venta venta = agencia.generarVenta(cliente1, vendedorEncontrado,100,1215,549848);
-			System.out.println("Venta generada: " + venta);
-		}
 }

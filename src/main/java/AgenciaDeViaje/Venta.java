@@ -1,15 +1,11 @@
 package AgenciaDeViaje;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 public class Venta {
 	private int precioVenta;
-	private int fechaVenta;
+	private String fechaVenta;
 	private int idVenta;
 	private Agente agente;
 	private Cliente cliente;
-
 
 	public int getPrecioVenta() {
 		return this.precioVenta;
@@ -19,11 +15,11 @@ public class Venta {
 		this.precioVenta = precioVenta;
 	}
 
-	public int getFechaVenta() {
+	public String getFechaVenta() {
 		return this.fechaVenta;
 	}
 
-	public void setFechaVenta(int fechaVenta) {
+	public void setFechaVenta(String fechaVenta) {
 		this.fechaVenta = fechaVenta;
 	}
 
@@ -34,7 +30,8 @@ public class Venta {
 	public void setIdVenta(int idVenta) {
 		this.idVenta = idVenta;
 	}
-	public Venta(Cliente cliente,Agente agente, int  precioVenta, int idVenta, int fechaVenta) {
+
+	public Venta(Cliente cliente,Agente agente,int precioVenta, String fechaVenta, int idVenta) {
 		this.fechaVenta=fechaVenta;
 		this.idVenta=idVenta;
 		this.precioVenta=precioVenta;
