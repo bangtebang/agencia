@@ -1,6 +1,6 @@
 package AgenciaDeViaje;
 
-public class Persona {
+public abstract class Persona {
 	private String nombre;
 	private int edad;
 	private String run;
@@ -8,6 +8,9 @@ public class Persona {
 	public String getNombre() {
 		return this.nombre;
 	}
+	public abstract String getTipo();
+	public abstract String tipoIngreso();
+
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;

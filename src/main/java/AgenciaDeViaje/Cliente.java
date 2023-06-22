@@ -8,4 +8,10 @@ public class Cliente extends Persona {
 	public Cliente(String nombre, int edad, String run) {
 		super(nombre, edad, run);
 	}
+	public String getTipo() {
+		return "Cliente";
+	}
+	public String tipoIngreso() {
+		return "Puerta Principal";
+	}
 }

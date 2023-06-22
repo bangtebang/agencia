@@ -10,4 +10,10 @@ public class Agente extends Persona {
 	public Agente(String nombre, int edad, String run) {
 		super(nombre, edad, run);
 	}
+	public String getTipo() {
+		return "Agente";
+	}
+	public String tipoIngreso() {
+		return "Puerta Empleados";
+	}
 }
