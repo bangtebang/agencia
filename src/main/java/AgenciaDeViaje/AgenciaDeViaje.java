@@ -9,6 +9,9 @@ import AgenciaDeViaje.Agente;
 public class AgenciaDeViaje {
 	private ArrayList<Agente> agentes;
 	private ArrayList<Cliente> clientes;
+	private List<Persona> personas;
+
+
 
 	public void anadirAgente(Agente agente) {
 		if (!agenteExiste(agente)) {
@@ -76,5 +79,31 @@ public class AgenciaDeViaje {
 		}
 
 		return false;
+	}
+	public List<Persona> buscarPersonasMayoresDe30() {
+		List<Persona> resultado = new ArrayList<>();
+		for (Persona persona : personas) {
+			if (persona.getEdad() > 30) {
+				resultado.add(persona);
+			}
+		}
+		return resultado;
+	}
+	public int contarClientes() {
+		return clientes.size();
+	}
+	public int contarAgentes() {
+		return agentes.size();
+	}
+	public void despedirVendedor(String run) {
+		for (Agente agente : agentes) {
+			if (agente.getRun().equals(run)) {
+				agentes.remove(agente);
+				personas.remove(agente);
+				System.out.println("Vendedor despedido.");
+				return;
+			}
+		}
+		System.out.println("No se encontró al vendedor con el rut especificado.");
 	}
 }

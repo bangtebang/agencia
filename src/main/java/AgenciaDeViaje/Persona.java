@@ -36,4 +36,5 @@ public abstract class Persona {
 		this.edad=edad;
 		this.run=run;
 	}
+
 }
